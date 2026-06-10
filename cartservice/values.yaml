@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: vishnukrajan007/adservice
+  repository: vishnukrajan007/cartservice
   tag: 327107c
   pullPolicy: IfNotPresent
 
