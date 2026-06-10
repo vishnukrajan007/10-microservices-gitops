@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/productcatalogservice
-  tag: 71ee002
+  repository: vishnukrajan007/productcatalogservice
+  tag: 5dff2c0
   pullPolicy: IfNotPresent
 
 service:
