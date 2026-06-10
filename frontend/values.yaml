@@ -1,8 +1,8 @@
 ireplicaCount: 1
 
 image:
-  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/frontend
-  tag: 71ee002 
+  repository: vishnukrajan007/frontend
+  tag: 5dff2c0
   pullPolicy: IfNotPresent
 
 service:
