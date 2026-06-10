@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/adservice
-  tag: 71ee002
+  repository: vishnukrajan007/adservice
+  tag: 1a8f309
   pullPolicy: IfNotPresent
 
 service:
