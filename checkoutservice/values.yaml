@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/checkoutservice
+  tag: 71ee002
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5050
+  targetPort: 5050
+
+containerPort: 5050
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+  limits:
+    cpu: 200m
+    memory: 128Mi

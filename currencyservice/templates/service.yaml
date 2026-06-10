@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: currencyservice
+
+spec:
+  type: {{ .Values.service.type }}
+
+  selector:
+    app: currencyservice
+
+  ports:
+    - name: grpc
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}

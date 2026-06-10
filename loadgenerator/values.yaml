@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/loadgenerator
+  tag: 71ee002
+  pullPolicy: IfNotPresent
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 256Mi
+
+  limits:
+    cpu: 500m
+    memory: 512Mi

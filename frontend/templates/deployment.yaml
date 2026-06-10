@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: frontend
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+
+    spec:
+      serviceAccountName: default
+
+      containers:
+        - name: frontend
+
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+
+          env:
+            - name: PORT
+              value: "8080"
+
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: {{ .Values.env.PRODUCT_CATALOG_SERVICE_ADDR | quote }}
+
+            - name: CURRENCY_SERVICE_ADDR
+              value: {{ .Values.env.CURRENCY_SERVICE_ADDR | quote }}
+
+            - name: CART_SERVICE_ADDR
+              value: {{ .Values.env.CART_SERVICE_ADDR | quote }}
+
+            - name: RECOMMENDATION_SERVICE_ADDR
+              value: {{ .Values.env.RECOMMENDATION_SERVICE_ADDR | quote }}
+
+            - name: SHIPPING_SERVICE_ADDR
+              value: {{ .Values.env.SHIPPING_SERVICE_ADDR | quote }}
+
+            - name: CHECKOUT_SERVICE_ADDR
+              value: {{ .Values.env.CHECKOUT_SERVICE_ADDR | quote }}
+
+            - name: AD_SERVICE_ADDR
+              value: {{ .Values.env.AD_SERVICE_ADDR | quote }}
+
+            - name: ENABLE_PROFILER
+              value: "0"
+
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

@@ -1,0 +1,6 @@
+apiversion: v2
+name: cartservice
+description: cartservice for microservice application
+type: application
+version: 1.0.0
+appversion: "1.0"

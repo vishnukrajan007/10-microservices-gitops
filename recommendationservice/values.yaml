@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/recommendationservice
+  tag: 71ee002
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+containerPort: 8080
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 220Mi
+
+  limits:
+    cpu: 200m
+    memory: 450Mi

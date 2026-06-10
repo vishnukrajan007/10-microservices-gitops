@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/currencyservice
+  tag: 71ee002
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 7000
+  targetPort: 7000
+
+containerPort: 7000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+  limits:
+    cpu: 200m
+    memory: 128Mi

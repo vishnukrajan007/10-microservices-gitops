@@ -1,0 +1,8 @@
+apiVersion: v2
+name: recommendationservice
+description: Helm chart for recommendationservice
+
+type: application
+
+version: 0.1.0
+appVersion: "1.0"

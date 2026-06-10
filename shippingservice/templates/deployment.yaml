@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shippingservice
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: shippingservice
+
+  template:
+    metadata:
+      labels:
+        app: shippingservice
+
+    spec:
+      serviceAccountName: default
+
+      containers:
+        - name: server
+
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+
+          env:
+            - name: PORT
+              value: "50051"
+
+            - name: DISABLE_PROFILER
+              value: "1"
+
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

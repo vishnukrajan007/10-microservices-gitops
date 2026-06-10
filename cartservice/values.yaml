@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: 391824190618.dkr.ecr.us-east-1.amazonaws.com/cartservice
+  tag: 71ee002
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 7070
+  targetPort: 7070
+
+containerPort: 7070
+
+env:
+  PRODUCT_CATALOG_SERVICE_ADDR: productcatalogservice:3550
+  CURRENCY_SERVICE_ADDR: currencyservice:7000
+  CART_SERVICE_ADDR: cartservice:7070
+  RECOMMENDATION_SERVICE_ADDR: recommendationservice:8080
+  SHIPPING_SERVICE_ADDR: shippingservice:50051
+  CHECKOUT_SERVICE_ADDR: checkoutservice:5050
+  AD_SERVICE_ADDR: adservice:9555
